@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Asignar Distribuidores</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/css/output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-8">
+  <div class="max-w-6xl mx-auto bg-white shadow-xl p-6 rounded-xl">
+    <h1 class="text-2xl font-bold mb-6 text-gray-800">Asignación de Distribuidores</h1>
+
+    <div id="mensaje" class="mb-4 text-center text-green-600 hidden"></div>
+    
+    <div class="mb-4 flex justify-between items-center">
+      <input type="text" id="buscador" placeholder="Buscar por correo..." class="border px-3 py-2 rounded w-64">
+      <button onclick="exportarCSV()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Exportar CSV</button>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-sm text-left">
+        <thead>
+          <tr class="bg-blue-100 text-gray-700">
+            <th class="p-2">ID</th>
+            <th class="p-2">Correo</th>
+            <th class="p-2">Fecha</th>
+            <th class="p-2">Distribuidor</th>
+            <th class="p-2">Acción</th>
+          </tr>
+        </thead>
+        <tbody id="tablaUsuarios"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    let listaOriginal = [];
+
+    function renderizarTabla(filtrados) {
+      const tabla = document.getElementById("tablaUsuarios");
+      tabla.innerHTML = "";
+    
+      filtrados.forEach(u => {
+        const fila = document.createElement("tr");
+        fila.innerHTML = `
+          <td class="p-2">${u.id}</td>
+          <td class="p-2">${u.email}</td>
+          <td class="p-2">${u.fecha_registro}</td>
+          <td class="p-2">
+            <select id="dist-${u.id}" class="border rounded px-2 py-1">
+              <option value="">Seleccione</option>
+              ${distribuidores.map(d => `<option value="${d.id}">${d.nombre}</option>`).join("")}
+            </select>
+          </td>
+          <td class="p-2">
+            <button onclick="asignar(${u.id})" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">Asignar</button>
+          </td>
+        `;
+        tabla.appendChild(fila);
+      });
+    }
+    
+    document.getElementById("buscador").addEventListener("input", e => {
+      const texto = e.target.value.toLowerCase();
+      const filtrados = listaOriginal.filter(u => u.email.toLowerCase().includes(texto));
+      renderizarTabla(filtrados);
+    });
+
+    async function cargarUsuarios() {
+      const res = await fetch("https://fw.geneosyst.com/api/usuarios_sin_distribuidor.php");
+      const data = await res.json();
+      listaOriginal = data.usuarios;
+      renderizarTabla(listaOriginal);
+    }
+    
+    let distribuidores = [];
+
+      async function cargarDistribuidores() {
+        const res = await fetch("https://fw.geneosyst.com/api/listar_distribuidores.php");
+        const data = await res.json();
+        distribuidores = data.distribuidores || [];
+      }
+    
+      async function iniciar() {
+        await cargarDistribuidores();
+        await cargarUsuarios();
+      }
+    
+      iniciar();
+      
+    async function asignar(id_usuario) {
+        const select = document.getElementById(`dist-${id_usuario}`);
+        const id_distribuidor = select.value;
+    
+        if (!id_distribuidor) {
+          alert("Seleccioná un distribuidor.");
+          return;
+        }
+    
+        const res = await fetch("https://fw.geneosyst.com/api/asignar_distribuidor.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ id_usuario, id_distribuidor })
+        });
+    
+        const result = await res.json();
+    
+        if (result.success) {
+          document.getElementById("mensaje").textContent = "✅ Distribuidor asignado correctamente.";
+          document.getElementById("mensaje").classList.remove("hidden");
+          await cargarUsuarios(); // Actualiza lista
+        } else {
+          alert("❌ Error al asignar distribuidor.");
+        }
+      }
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel - Factura Web</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-tr from-blue-100 via-white to-blue-200 min-h-screen flex items-center justify-center px-4">
+
+  <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md text-center animate-[fadeInUp_0.8s_ease-out]">
+    <img src="/logo.png" class="mx-auto w-16 h-16 mb-3 drop-shadow" alt="Logo">
+    <h1 class="text-2xl font-bold text-gray-800">Factura Web</h1>
+    <p class="text-gray-600 mt-2 mb-6" id="saludo">Cargando...</p>
+    
+    <!-- CONTENIDO DEL PANEL -->
+    [[AQUÍ VA EL CONTENIDO DEL PANEL]]
+
+    <button id="logout" class="mt-6 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+      Cerrar sesión
+    </button>
+  </div>
+
+  <script>
+    const user = localStorage.getItem("usuario_email");
+    if (!user) window.location.href = "/login";
+    else document.getElementById("saludo").textContent = `Hola, ${user}`;
+    document.getElementById("logout").addEventListener("click", () => {
+      localStorage.removeItem("usuario_email");
+      window.location.href = "/login";
+    });
+  </script>
+</body>
+</html>

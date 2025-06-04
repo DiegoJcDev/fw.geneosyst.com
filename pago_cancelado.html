@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pago Cancelado - Factura Web</title>
+  <link href="/css/output.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-tr from-red-100 via-white to-red-200 min-h-screen flex items-center justify-center px-4">
+
+  <div class="bg-white p-8 rounded-2xl shadow-2xl text-center animate-[fadeIn_1s_ease-out] max-w-md w-full">
+    <div class="text-6xl mb-4">❌</div>
+    <h1 class="text-2xl font-bold text-red-700 mb-4">Pago cancelado</h1>
+    <p class="text-gray-700 mb-6">No te preocupes, puedes intentarlo de nuevo cuando quieras. 🙂</p>
+    
+    <button onclick="irAlPanel()" class="w-full bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
+      Volver al Panel
+    </button>
+  </div>
+
+  <script>
+    function irAlPanel() {
+      window.location.href = "/panel";
+    }
+
+    // Opcional: Redirigir automáticamente después de unos segundos
+    setTimeout(() => {
+      window.location.href = "/panel";
+    }, 7000); // 7 segundos
+  </script>
+  
+</body>
+</html>

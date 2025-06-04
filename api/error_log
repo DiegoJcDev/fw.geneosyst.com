@@ -1,0 +1,333 @@
+[02-May-2025 18:35:07 UTC] PHP Notice:  Undefined index: RfcNoIdFiscal in /home/adminsys/fw.geneosyst.com/api/login.php on line 43
+[03-May-2025 18:28:33 UTC] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/adminsys/fw.geneosyst.com/api/guardar_mi_empresa.php on line 104
+[03-May-2025 18:30:11 UTC] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/adminsys/fw.geneosyst.com/api/guardar_mi_empresa.php on line 104
+[03-May-2025 18:32:49 UTC] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/adminsys/fw.geneosyst.com/api/guardar_mi_empresa.php on line 104
+[03-May-2025 18:33:58 UTC] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/adminsys/fw.geneosyst.com/api/guardar_mi_empresa.php on line 105
+[03-May-2025 19:12:56 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php on line 31
+[03-May-2025 19:12:57 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php on line 31
+[03-May-2025 19:12:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php on line 31
+[03-May-2025 19:26:51 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/verificar_empresa.php:25
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/verificar_empresa.php on line 25
+[03-May-2025 19:26:53 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/verificar_empresa.php:25
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/verificar_empresa.php on line 25
+[03-May-2025 19:27:09 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/verificar_empresa.php:25
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/verificar_empresa.php on line 25
+[03-May-2025 19:46:29 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/verificar_empresa.php:27
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/verificar_empresa.php on line 27
+[03-May-2025 19:52:37 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/verificar_empresa.php:30
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/verificar_empresa.php on line 30
+[03-May-2025 19:52:40 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/verificar_empresa.php:30
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/verificar_empresa.php on line 30
+[03-May-2025 19:52:44 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/verificar_empresa.php:30
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/verificar_empresa.php on line 30
+[03-May-2025 19:56:14 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/verificar_empresa.php:26
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/verificar_empresa.php on line 26
+[03-May-2025 19:56:26 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/verificar_empresa.php:26
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/verificar_empresa.php on line 26
+[03-May-2025 19:56:35 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/verificar_empresa.php:26
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/verificar_empresa.php on line 26
+[03-May-2025 19:57:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/verificar_empresa.php:26
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/verificar_empresa.php on line 26
+[03-May-2025 20:00:05 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/verificar_empresa.php:26
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/verificar_empresa.php on line 26
+[05-May-2025 20:10:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_listar.php:35
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_listar.php on line 35
+[05-May-2025 20:10:44 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_listar.php:35
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_listar.php on line 35
+[05-May-2025 20:10:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_listar.php:35
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_listar.php on line 35
+[05-May-2025 20:10:48 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_listar.php:35
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_listar.php on line 35
+[05-May-2025 20:11:04 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_listar.php:35
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_listar.php on line 35
+[05-May-2025 20:12:20 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_listar.php:35
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_listar.php on line 35
+[05-May-2025 20:12:21 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_listar.php:35
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_listar.php on line 35
+[05-May-2025 20:12:27 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_listar.php:35
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_listar.php on line 35
+[05-May-2025 20:15:07 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_listar.php:35
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_listar.php on line 35
+[05-May-2025 20:15:35 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_listar.php:35
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_listar.php on line 35
+[05-May-2025 20:15:43 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_listar.php:35
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_listar.php on line 35
+[06-May-2025 15:53:00 UTC] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/adminsys/fw.geneosyst.com/api/clientes_guardar.php on line 76
+[12-May-2025 17:42:19 UTC] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/adminsys/fw.geneosyst.com/api/clientes_guardar.php on line 76
+[12-May-2025 17:47:57 UTC] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/adminsys/fw.geneosyst.com/api/clientes_guardar.php on line 76
+[12-May-2025 19:05:42 UTC] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/adminsys/fw.geneosyst.com/api/clientes_guardar.php on line 92
+[12-May-2025 19:05:56 UTC] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/adminsys/fw.geneosyst.com/api/clientes_guardar.php on line 92
+[12-May-2025 19:26:43 UTC] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/adminsys/fw.geneosyst.com/api/clientes_guardar.php on line 92
+[12-May-2025 19:27:10 UTC] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/adminsys/fw.geneosyst.com/api/clientes_guardar.php on line 92
+[12-May-2025 19:28:20 UTC] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/adminsys/fw.geneosyst.com/api/clientes_guardar.php on line 92
+[12-May-2025 19:28:58 UTC] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/adminsys/fw.geneosyst.com/api/clientes_guardar.php on line 92
+[12-May-2025 19:31:48 UTC] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/adminsys/fw.geneosyst.com/api/clientes_guardar.php on line 92
+[13-May-2025 01:34:26 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php on line 38
+[13-May-2025 01:35:28 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php on line 38
+[13-May-2025 01:35:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php on line 38
+[13-May-2025 01:36:33 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php on line 38
+[13-May-2025 01:43:48 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php on line 38
+[13-May-2025 01:44:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php on line 38
+[13-May-2025 01:47:17 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php on line 38
+[13-May-2025 01:52:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php on line 40
+[13-May-2025 01:54:16 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php on line 40
+[13-May-2025 01:54:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php on line 40
+[13-May-2025 01:56:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php:48
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php on line 48
+[13-May-2025 01:59:14 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php:76
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php on line 76
+[13-May-2025 01:59:17 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php:76
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php on line 76
+[13-May-2025 01:59:22 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php:76
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php on line 76
+[13-May-2025 01:59:23 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php:76
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php on line 76
+[13-May-2025 02:00:10 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php:69
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php on line 69
+[13-May-2025 02:00:40 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php:69
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php on line 69
+[13-May-2025 02:00:51 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php:69
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php on line 69
+[13-May-2025 02:01:19 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php:69
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php on line 69
+[13-May-2025 02:02:27 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php:69
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php on line 69
+[13-May-2025 19:35:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php:69
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php on line 69
+[13-May-2025 23:03:21 UTC] PHP Notice:  Undefined variable: conn in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php on line 16
+[13-May-2025 23:03:21 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php on line 16
+[13-May-2025 23:03:51 UTC] PHP Notice:  Undefined variable: conn in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php on line 16
+[13-May-2025 23:03:51 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php on line 16
+[13-May-2025 23:05:41 UTC] PHP Notice:  Undefined variable: conn in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php on line 16
+[13-May-2025 23:05:41 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php on line 16
+[13-May-2025 23:06:04 UTC] PHP Notice:  Undefined variable: conn in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php on line 16
+[13-May-2025 23:06:04 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php on line 16
+[13-May-2025 23:08:41 UTC] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php on line 18
+[13-May-2025 23:09:09 UTC] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php on line 18
+[13-May-2025 23:10:07 UTC] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php on line 18
+[13-May-2025 23:12:02 UTC] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php on line 18
+[13-May-2025 23:12:36 UTC] PHP Notice:  Undefined variable: conn in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php on line 17
+[13-May-2025 23:12:36 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php on line 17
+[13-May-2025 23:14:23 UTC] PHP Notice:  Undefined variable: conn in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php on line 17
+[13-May-2025 23:14:23 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php on line 17
+[14-May-2025 00:11:34 UTC] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php:26
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/avance_onboarding.php on line 26
+[15-May-2025 01:24:11 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/buscar_unidad_sat.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/buscar_unidad_sat.php on line 29
+[15-May-2025 01:34:22 UTC] Error buscar_unidad_sat: Call to undefined method mysqli_stmt::get_result()
+[15-May-2025 01:35:20 UTC] Error buscar_unidad_sat: Call to undefined method mysqli_stmt::get_result()
+[15-May-2025 01:37:40 UTC] Error buscar_unidad_sat: Call to undefined method mysqli_stmt::get_result()
+[15-May-2025 01:37:44 UTC] Error buscar_unidad_sat: Call to undefined method mysqli_stmt::get_result()
+[15-May-2025 01:37:45 UTC] Error buscar_unidad_sat: Call to undefined method mysqli_stmt::get_result()
+[15-May-2025 01:37:45 UTC] Error buscar_unidad_sat: Call to undefined method mysqli_stmt::get_result()
+[15-May-2025 01:37:45 UTC] Error buscar_unidad_sat: Call to undefined method mysqli_stmt::get_result()
+[15-May-2025 01:37:46 UTC] Error buscar_unidad_sat: Call to undefined method mysqli_stmt::get_result()
+[15-May-2025 01:37:52 UTC] Error buscar_unidad_sat: Call to undefined method mysqli_stmt::get_result()
+[15-May-2025 01:37:56 UTC] Error buscar_unidad_sat: Call to undefined method mysqli_stmt::get_result()
+[15-May-2025 01:38:00 UTC] Error buscar_unidad_sat: Parámetro de búsqueda vacío
+[15-May-2025 15:10:07 UTC] PHP Warning:  mysqli_stmt::bind_result(): Number of bind variables doesn't match number of fields in prepared statement in /home/adminsys/fw.geneosyst.com/api/catalogo_tipo_producto.php on line 20
+[15-May-2025 18:33:54 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php:69
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/clientes_exportar_csv.php on line 69
+[15-May-2025 19:37:02 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home/adminsys/fw.geneosyst.com/api/caracteristicas_grupo_items.php on line 50
+[15-May-2025 19:38:04 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home/adminsys/fw.geneosyst.com/api/caracteristicas_grupo_items.php on line 50
+[15-May-2025 19:38:07 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home/adminsys/fw.geneosyst.com/api/caracteristicas_grupo_items.php on line 50
+[15-May-2025 19:41:28 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home/adminsys/fw.geneosyst.com/api/caracteristicas_grupo_items.php on line 50
+[15-May-2025 22:21:28 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home/adminsys/fw.geneosyst.com/api/caracteristicas_grupo_items.php on line 50
+[16-May-2025 05:26:24 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home/adminsys/fw.geneosyst.com/api/caracteristicas_grupo_items.php on line 50
+[22-May-2025 04:56:06 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home/adminsys/fw.geneosyst.com/api/caracteristicas_grupo_items.php on line 50
+[22-May-2025 04:57:54 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home/adminsys/fw.geneosyst.com/api/caracteristicas_grupo_items.php on line 50
+[28-May-2025 22:14:46 UTC] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/adminsys/fw.geneosyst.com/api/guardar_producto.php:59
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/guardar_producto.php on line 59
+[28-May-2025 22:22:12 UTC] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/adminsys/fw.geneosyst.com/api/guardar_producto.php:64
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/guardar_producto.php on line 64
+[28-May-2025 22:24:31 UTC] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/adminsys/fw.geneosyst.com/api/guardar_producto.php:64
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/guardar_producto.php on line 64
+[28-May-2025 22:28:17 UTC] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/adminsys/fw.geneosyst.com/api/guardar_producto.php:62
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/guardar_producto.php on line 62
+[28-May-2025 23:08:08 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/productos_listar.php:71
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/productos_listar.php on line 71
+[28-May-2025 23:09:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/productos_listar.php:71
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/productos_listar.php on line 71
+[28-May-2025 23:09:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/productos_listar.php:71
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/productos_listar.php on line 71
+[28-May-2025 23:09:38 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/productos_listar.php:71
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/productos_listar.php on line 71
+[28-May-2025 23:23:19 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/productos_listar.php:86
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/productos_listar.php on line 86
+[28-May-2025 23:24:52 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/productos_listar.php:86
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/productos_listar.php on line 86
+[28-May-2025 23:25:55 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/productos_listar.php:87
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/productos_listar.php on line 87
+[28-May-2025 23:29:14 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/obtener_producto.php:28
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/obtener_producto.php on line 28
+[29-May-2025 18:52:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/obtener_avisos_globales.php:23
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/obtener_avisos_globales.php on line 23

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Panel - Factura Web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- <link href="/css/output.css" rel="stylesheet"> -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .check-badge,
+    .warning-badge {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      width: 28px;
+      height: 28px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Material Icons';
+      font-size: 20px;
+      line-height: 1;
+      box-shadow: 0 0 0 2px white, 0 2px 6px rgba(0, 0, 0, 0.15);
+      z-index: 10;
+      color: white;
+    }
+    
+    .check-badge {
+      background-color: #22c55e;
+    }
+    
+    .warning-badge {
+      background-color: #facc15;
+    }
+  </style>
+  
+</head>
+<body class="bg-gradient-to-tr from-blue-100 via-white to-blue-200 min-h-screen px-4 py-10">
+
+  <div class="max-w-6xl mx-auto animate-[fadeInUp_0.8s_ease-out]">
+    <!-- Encabezado -->
+    <div class="flex justify-between items-start mb-10">
+      <!-- Logo, título, saludo y plan actual -->
+      <div class="flex flex-col items-start space-y-1">
+        <img src="/logo.png" alt="Logo" style="width:150px; height:37.5px;" class="drop-shadow-md mb-1">
+        <h1 class="text-2xl font-bold text-gray-800">Factura Web</h1>
+        <p id="saludo" class="text-gray-600 text-sm">Hola, usuario</p>
+        <span id="planActual" class="text-xs font-medium bg-gray-100 text-gray-700 px-2 py-0.5 rounded-full hidden"></span>
+      </div>
+    
+      <!-- Botón cerrar sesión con altura mejorada -->
+      <div class="self-start">
+        <button id="logout" class="bg-red-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-red-700 transition">
+          Cerrar sesión
+        </button>
+      </div>
+    </div>
+    
+    <!-- Aviso Globales -->
+    <div id="avisosGlobales" class="space-y-4 mb-10"></div>
+    
+    <!-- Aviso Prueba / Renovación -->
+    <div id="avisoPrueba" class="hidden bg-white shadow-lg rounded-2xl border-l-4 border-yellow-500 p-6 mb-8">
+      <!-- Mensajes dinámicos -->
+      <p id="textoAviso" class="font-semibold text-gray-800 mb-2">
+        ⏳ Estás usando una versión de prueba.
+      </p>
+      <p id="detalleAviso" class="text-sm text-gray-600 mb-6">
+        Te quedan <span id="diasRestantes" class="font-bold text-gray-800">0</span> días para completar tu registro y activar el sistema.
+      </p>
+    
+      <!-- Contenedor de planes -->
+      <div id="planes-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Aquí se inyectan las tarjetas Mensual / Anual -->
+      </div>
+    </div>
+
+    <!-- Accesos -->
+    <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">👉 Accesos</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="relative acceso" data-step="2">
+        <a href="/miempresa" class="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl hover:scale-[1.02] transition-all duration-200 text-center h-full flex flex-col justify-between">
+          <div class="text-4xl mb-2">🏢</div>
+          <h2 class="text-lg font-semibold text-gray-800">Mi Empresa</h2>
+          <p class="text-sm text-gray-500 mt-1">Datos fiscales y configuración</p>
+        </a>
+      </div>
+      <div class="relative acceso" data-step="3">
+        <a href="/clientes" class="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl hover:scale-[1.02] transition-all duration-200 text-center h-full flex flex-col justify-between">
+          <div class="text-4xl mb-2">👥</div>
+          <h2 class="text-lg font-semibold text-gray-800">Clientes</h2>
+          <p class="text-sm text-gray-500 mt-1">Catálogo</p>
+        </a>
+      </div>
+      <div class="relative acceso" data-step="4">
+        <a href="/productos" class="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl hover:scale-[1.02] transition-all duration-200 text-center h-full flex flex-col justify-between">
+          <div class="text-4xl mb-2">📦</div>
+          <h2 class="text-lg font-semibold text-gray-800">Productos y Servicios</h2>
+          <p class="text-sm text-gray-500 mt-1">Catálogo</p>
+        </a>
+      </div>
+      <div class="relative acceso" data-step="5">
+        <a href="/documentos" class="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl hover:scale-[1.02] transition-all duration-200 text-center h-full flex flex-col justify-between">
+          <div class="text-4xl mb-2">🧾</div>
+          <h2 class="text-lg font-semibold text-gray-800">Documentos</h2>
+          <p class="text-sm text-gray-500 mt-1">Emisión y seguimiento</p>
+        </a>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-2 gap-6 border-t border-gray-300 mt-10 pt-10">
+      <a href="/finanzas" class="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl hover:scale-[1.02] transition-all duration-200 text-center">
+        <div class="text-4xl mb-2">💰</div>
+        <h2 class="text-lg font-semibold text-gray-800">Finanzas</h2>
+        <p class="text-sm text-gray-500 mt-1">Balance, ingresos y saldos</p>
+      </a>
+      <a href="/distribuidor" class="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl hover:scale-[1.02] transition-all duration-200 text-center">
+        <div class="text-4xl mb-2">🤝</div>
+        <h2 class="text-lg font-semibold text-gray-800">Mi Distribuidor</h2>
+        <p class="text-sm text-gray-500 mt-1">Datos de contacto y asistencia</p>
+      </a>
+    </div>
+
+    <!-- Resumen -->
+    <div class="border-t border-gray-300 mt-16 pt-10">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">📊 Resumen del mes actual</h2>
+
+      <div class="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <!-- Facturación -->
+        <div class="bg-blue-50 rounded-2xl shadow-inner p-6 hover:shadow-md transition">
+          <div class="flex items-center mb-2">
+            <div class="text-3xl mr-3">🧾</div>
+            <h3 class="text-lg font-semibold text-blue-800">Facturación</h3>
+          </div>
+          <p class="text-sm text-blue-700">Documentos emitidos: <span class="font-bold" id="facturasCantidad">-</span></p>
+          <p class="text-sm text-blue-700">Total facturado: <span class="font-bold" id="facturasImporte">$0.00</span></p>
+        </div>
+
+        <!-- Cobros -->
+        <div class="bg-green-50 rounded-2xl shadow-inner p-6 hover:shadow-md transition">
+          <div class="flex items-center mb-2">
+            <div class="text-3xl mr-3">💰</div>
+            <h3 class="text-lg font-semibold text-green-800">Cobros</h3>
+          </div>
+          <p class="text-sm text-green-700">Pagos registrados: <span class="font-bold" id="cobrosCantidad">-</span></p>
+          <p class="text-sm text-green-700">Total cobrado: <span class="font-bold" id="cobrosImporte">$0.00</span></p>
+        </div>
+
+        <!-- Por cobrar -->
+        <div class="bg-yellow-50 rounded-2xl shadow-inner p-6 hover:shadow-md transition">
+          <div class="flex items-center mb-2">
+            <div class="text-3xl mr-3">📌</div>
+            <h3 class="text-lg font-semibold text-yellow-800">Por cobrar</h3>
+          </div>
+          <p class="text-sm text-yellow-700">Documentos pendientes: <span class="font-bold" id="cuentasCantidad">-</span></p>
+          <p class="text-sm text-yellow-700">Saldo pendiente: <span class="font-bold" id="cuentasSaldo">$0.00</span></p>
+        </div>
+        
+        <!-- Mi Suscripción -->
+        <div class="bg-purple-50 rounded-2xl shadow-inner p-6 hover:shadow-md transition">
+          <div class="flex items-center mb-2">
+            <div class="text-3xl mr-3">🛡️</div>
+            <h3 class="text-lg font-semibold text-purple-800">Mi Suscripción</h3>
+          </div>
+          <p class="text-sm text-purple-700">Plan: <span class="font-bold" id="planNombre">-</span></p>
+          <p class="text-sm text-purple-700">Inicio: <span class="font-bold" id="fechaInicio">-</span></p>
+          <p class="text-sm text-purple-700">Vence: <span class="font-bold" id="fechaTermino">-</span></p>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="text-center text-sm text-gray-500 mt-6">
+      <p>&copy; 2025 GÉNEOSYST Factura Web. Todos los derechos reservados.</p>
+    </div>
+  </div>
+
+<!-- scripts del panel -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script>
+    const user = localStorage.getItem("usuario_email");
+    if (!user) window.location.href = "/login";
+    else document.getElementById("saludo").textContent = `Hola, ${user}`;
+
+    document.getElementById("logout").addEventListener("click", () => {
+      localStorage.removeItem("usuario_email");
+      window.location.href = "/login";
+    });
+    
+    // Prevención de volver atrás si cerró sesión
+    window.addEventListener("pageshow", function (event) {
+      if (event.persisted || performance.getEntriesByType("navigation")[0].type === "back_forward") {
+        if (!localStorage.getItem("usuario_email")) {
+          window.location.href = "/login";
+        }
+      }
+    });
+    
+    //---- Funciones ----
+    async function cargarPlanesDinamicos() {
+      const cont = document.getElementById("planes-container");
+      cont.innerHTML = "";
+    
+      for (let tipo of ["anual", "mensual"]) {
+        try {
+          const res = await fetch("/api/obtener_precio_suscripcion.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ tipo })
+          });
+          const d = await res.json();
+          if (!d.success) continue;
+    
+          // ICONO representativo
+          const icono = tipo === "anual" ? "🎯" : "📆";
+    
+          // BADGE promoción
+          const promoBadge = d.esPromocion == 1
+            ? `<span class="absolute top-3 right-3 bg-green-600 text-white text-[11px] font-bold px-3 py-1 rounded-full shadow animate-pulse tracking-wide uppercase z-10">
+                 ¡Promoción!
+               </span>`
+            : "";
+    
+          // BADGE más popular
+          const popularBadge = tipo === "anual"
+            ? `<span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
+                 Más popular
+               </span>`
+            : "";
+    
+          // Colores y estilo base
+          const bgCard = tipo === "anual"
+            ? "bg-gradient-to-br from-blue-100 to-white text-blue-900"
+            : "bg-white text-gray-800";
+    
+          const hoverClass = "hover:-translate-y-1 hover:shadow-2xl";
+    
+          // Insertar tarjeta
+          cont.insertAdjacentHTML("beforeend", `
+            <div class="relative rounded-2xl shadow-md ${bgCard} transform transition-all duration-300 cursor-pointer p-6 pt-12 ${hoverClass}"
+                 onclick="activarSuscripcionDirecto('${d.stripePriceId}')">
+              
+              ${popularBadge}
+              ${promoBadge}
+    
+              <div class="flex items-center justify-center text-4xl mb-3">${icono}</div>
+              <div class="text-center">
+                <h3 class="text-lg font-semibold mb-1">
+                  Suscripción ${tipo === "anual" ? "Anual" : "Mensual"}
+                </h3>
+                <p class="text-3xl font-extrabold mb-4">$${d.precio} MXN</p>
+              </div>
+            </div>
+          `);
+        } catch (err) {
+          console.error("Error cargando planes:", err);
+        }
+      }
+    }
+    
+    function actualizarMsgBv(nuevoPaso) {
+      const userId = localStorage.getItem("usuario_id");
+      fetch("https://fw.geneosyst.com/api/actualizar_msgbv.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId: userId, newStep: nuevoPaso }),
+      })
+        .then((r) => r.json())
+        .then((data) => {
+          if (data.success) {
+            localStorage.setItem("usuario_msgbv", nuevoPaso);
+          }
+        });
+    }
+    
+    async function activarSuscripcionDirecto(priceId) {
+      let email = localStorage.getItem("usuario_email");
+      try {
+          // Mostrar el mensaje de carga antes de iniciar la solicitud
+          Swal.fire({
+            title: 'Estamos preparando su pago...',
+            text: 'Por favor espera un momento.',
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            showConfirmButton: false,
+            didOpen: () => {
+              Swal.showLoading();
+            }
+          });
+          
+        let res = await fetch("https://fw.geneosyst.com/api/checkout.php", {
+          method:"POST",
+          headers:{"Content-Type":"application/json"},
+          body:JSON.stringify({price_id:priceId,email})
+        });
+        let d = await res.json();
+        
+        // Cerrar el mensaje de carga
+        Swal.close();
+        
+        if(d.success) window.location.href = d.url;
+        else alert("❌ "+d.message);
+      } catch {
+        alert("❌ Error de conexión.");
+      }
+    }
+    
+function obtenerTituloTipo(tipo) {
+  switch (tipo) {
+    case "info": return "Información";
+    case "advertencia": return "Advertencia";
+    case "alerta": return "Alerta importante";
+    case "promocion": return "Promoción activa";
+    default: return "Aviso";
+  }
+}
+    //---- Funciones ----
+    
+    //---- LoadForm ----
+    async function cargarSuscripcion() {
+      try {
+        const email = localStorage.getItem("usuario_email");
+        if (!email) return;
+        const res = await fetch("/api/obtener_suscripcion.php", {
+          method: "POST",
+          headers: {"Content-Type":"application/json"},
+          body: JSON.stringify({ email })
+        });
+        const d = await res.json();
+        if (!d.success) return;
+
+        // Actualizar Mi Suscripción
+        document.getElementById("planNombre").textContent    = d.plan || "-";
+        document.getElementById("fechaInicio").textContent  = d.fecha_inicio || "-";
+        document.getElementById("fechaTermino").textContent = d.fecha_termino||"-";
+
+        const badge   = document.getElementById("planActual");
+        const aviso   = document.getElementById("avisoPrueba");
+        const texto   = document.getElementById("textoAviso");
+        const detalle = document.getElementById("detalleAviso");
+        let diffDias  = null;
+
+        // Reset
+        badge.className = "hidden px-2 py-0.5 rounded-full text-xs font-semibold";
+        aviso.className = "hidden";
+
+        if (d.prueba == 1) {
+          // En prueba
+          if (d.dias_prueba > 0) {
+            texto.textContent   = "⏳ Estás usando una versión de prueba.";
+            detalle.textContent = `Te quedan ${d.dias_prueba} días para activar tu suscripción.`;
+            aviso.className = "bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-xl mb-8 shadow-md";
+            await cargarPlanesDinamicos();
+          } else {
+            texto.textContent   = "⚠️ Tu periodo de prueba ha expirado.";
+            detalle.textContent = "Activa tu suscripción para seguir usando el sistema.";
+            aviso.className = "bg-red-100 border-l-4 border-red-500 text-red-800 p-4 rounded-xl mb-8 shadow-md animate-pulse";
+            await cargarPlanesDinamicos();
+          }
+          //aviso.classList.remove("hidden");
+        } else {
+          // Suscrito
+          if (d.plan === "Anual") {
+            badge.textContent = "Plan Anual";
+            badge.classList.add("inline-block","bg-green-100","text-green-800");
+          } else if (d.plan === "Mensual") {
+            badge.textContent = "Plan Mensual";
+            badge.classList.add("inline-block","bg-blue-100","text-blue-800");
+          } else {
+            badge.textContent = "Sin plan asignado";
+            badge.classList.add("inline-block","bg-gray-100","text-gray-800");
+          }
+          diffDias = Math.ceil((new Date(d.fecha_termino) - new Date())/(1000*60*60*24));
+          if (diffDias >=1 && diffDias <=10) {
+            texto.textContent   = "⚠️ Tu suscripción está próxima a vencer.";
+            detalle.textContent = "Renueva ahora para no interrumpir tu acceso.";
+            aviso.className = "bg-orange-100 border-l-4 border-orange-500 text-orange-800 p-4 rounded-xl mb-8 shadow-md animate-pulse";
+            await cargarPlanesDinamicos();
+            //aviso.classList.remove("hidden");
+          } else if (diffDias <= 0) {
+            texto.textContent   = "⚠️ Tu suscripción ha vencido y tu cuenta está suspendida.";
+            detalle.textContent = "Verás tu info, pero no podrás timbrar ni descargar.";
+            aviso.className = "bg-red-100 border-l-4 border-red-500 text-red-800 p-4 rounded-xl mb-8 shadow-md animate-pulse";
+            await cargarPlanesDinamicos();
+            //aviso.classList.remove("hidden");
+          }
+        }
+
+        //badge.classList.remove("hidden");
+
+        const estatusFinal = (d.prueba==1 && d.dias_prueba<=0) || (d.prueba==0 && diffDias<=0)
+          ? "suspendida" : "activa";
+        localStorage.setItem("estatus", estatusFinal);
+
+      } catch (err) {
+        console.error("Error al cargar datos de suscripción:", err);
+      }
+    }
+    
+    async function mostrarAvanceVisualYBienvenida() {
+        const userId = localStorage.getItem("usuario_id");
+        const msgbv = Number(localStorage.getItem("usuario_msgbv") || 0);
+        if (!userId) return;
+    
+        try {
+          const res = await fetch("/api/obtener_onboarding.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ userId: parseInt(userId) })
+          });
+    
+          const data = await res.json();
+          if (data.success) {
+            const paso = parseInt(data.step);
+            // Mostrar checks visuales según el paso
+            document.querySelectorAll('.acceso').forEach(div => {
+            const step = parseInt(div.dataset.step);
+            
+            if (paso >= step) {
+              const badge = document.createElement("span");
+              badge.className = "check-badge material-icons";
+              badge.textContent = "check";
+              badge.title = "¡Has hecho un buen trabajo en este módulo!";
+              div.appendChild(badge);
+            } else {
+              const warning = document.createElement("span");
+              warning.className = "warning-badge material-icons";
+              warning.textContent = "warning";
+              warning.title = "Aún no has agregado ningún registro en este módulo";
+              div.appendChild(warning);
+            }
+            });
+    
+            // Mostrar mensaje de bienvenida si está en paso 2
+            if (paso === 1 && msgbv === 0) {
+              Swal.fire({
+                title: '¡Has dado un gran paso!',
+                text: 'Gracias por confiar en el equipo GÉNEOSYST. Estás a punto de optimizar tu facturación como nunca antes. Comencemos configurando los datos de tu empresa.',
+                icon: 'success',
+                showCancelButton: true,
+                confirmButtonText: 'Ir a Mi Empresa',
+                cancelButtonText: 'Ahora no'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  window.location.href = 'miempresa';
+                }
+              });
+              
+              actualizarMsgBv(1);
+            }
+          }
+        } catch (err) {
+          console.error("Error al cargar avance visual:", err);
+        }
+      }
+      
+async function cargarAvisosGlobales() {
+  const userId = localStorage.getItem("usuario_id");
+  if (!userId) return;
+
+  try {
+    const res = await fetch("/api/obtener_avisos_globales.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ idUsuario: parseInt(userId) })
+    });
+
+    const data = await res.json();
+    if (!data.success || !Array.isArray(data.avisos)) return;
+
+    const cont = document.getElementById("avisosGlobales");
+    data.avisos.forEach(aviso => {
+      let estilo = {
+        bg: "bg-gray-100",
+        border: "border-gray-400",
+        text: "text-gray-800",
+        icono: "📢"
+      };
+    
+      switch (aviso.Tipo) {
+        case "info":
+          estilo = {
+            bg: "bg-blue-100",
+            border: "border-blue-500",
+            text: "text-blue-800",
+            icono: "ℹ️"
+          };
+          break;
+        case "advertencia":
+          estilo = {
+            bg: "bg-yellow-100",
+            border: "border-yellow-500",
+            text: "text-yellow-800",
+            icono: "⚠️"
+          };
+          break;
+        case "alerta":
+          estilo = {
+            bg: "bg-red-100",
+            border: "border-red-500",
+            text: "text-red-800",
+            icono: "❗"
+          };
+          break;
+        case "promocion":
+          estilo = {
+            bg: "bg-green-100",
+            border: "border-green-500",
+            text: "text-green-800",
+            icono: "🎁"
+          };
+          break;
+      }
+    
+      // Si es urgente, agregamos sombra o efecto animado
+      const efectoUrgente = aviso.EsUrgente == 1 ? "animate-pulse shadow-lg" : "shadow-sm";
+    
+      cont.insertAdjacentHTML("beforeend", `
+        <div class="relative ${estilo.bg} ${estilo.text} border-l-4 ${estilo.border} p-4 rounded-xl ${efectoUrgente}">
+          <div class="flex items-start">
+            <div class="text-2xl mr-3">${estilo.icono}</div>
+            <div class="text-center w-full">
+              <h3 class="text-base font-semibold uppercase tracking-wide opacity-70 mb-1">${obtenerTituloTipo(aviso.Tipo)}</h3>
+              <p class="text-xl font-bold mb-1">${aviso.Titulo}</p>
+              <p class="text-md text-gray-700">${aviso.Mensaje}</p>
+            </div>
+          </div>
+        </div>
+      `);
+    });
+
+  } catch (err) {
+    console.error("Error al cargar avisos globales:", err);
+  }
+}
+
+    document.addEventListener("DOMContentLoaded", () => {
+        cargarSuscripcion();
+        mostrarAvanceVisualYBienvenida();
+        cargarAvisosGlobales();
+    });
+    //---- LoadForm ----
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+RewriteEngine On
+
+RewriteRule ^registro$ register.html [L]
+RewriteRule ^login$ index.html [L]
+RewriteRule ^recuperar$ recuperar.html [L]
+RewriteRule ^restablecer$ restablecer.html [L]
+RewriteRule ^panel$ panel.html [L]
+RewriteRule ^reenviar$ reenviar.html [L]
+RewriteRule ^distribuidor$ distribuidor.html [L]
+RewriteRule ^admin_distribuidores$ admin_distribuidores.html [L]
+RewriteRule ^miempresa$ mi_empresa.html [L]
+RewriteRule ^clientes$ clientes.html [L]
+RewriteRule ^cliente_form$ cliente_formulario.html [L]
+RewriteRule ^productos$ productos.html [L]
+RewriteRule ^producto_form$ producto_formulario.html [L]
+RewriteRule ^documentos$ documentos.html [L]
+RewriteRule ^documentos_crear$ documentos_crear.html [L]
+
+<FilesMatch "\.php$">
+  Require all granted
+</FilesMatch>

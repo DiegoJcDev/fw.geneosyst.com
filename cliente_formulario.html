@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cliente - Factura Web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    input, select, textarea { transition: all 0.3s ease; }
+    input:focus, select:focus, textarea:focus { box-shadow: 0 0 0 2px #2563eb33; }
+  </style>
+</head>
+<body class="bg-gradient-to-tr from-blue-100 via-white to-blue-200 min-h-screen px-4 py-10">
+  <div class="max-w-4xl mx-auto animate-[fadeInUp_0.8s_ease-out]">
+    <div class="mb-6">
+      <a href="clientes" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Volver al Catálogo
+      </a>
+    </div>
+
+    <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center" id="titulo-formulario">🏢 Nuevo Cliente</h1>
+
+    <form id="form-cliente" class="bg-white p-8 rounded-2xl shadow-lg space-y-8">
+      <input type="hidden" id="Id" />
+
+      <section>
+        <h2 class="text-xl font-semibold text-blue-700 mb-4">📄 Información General</h2>
+        <div class="grid gap-6 sm:grid-cols-2">
+            <div>
+                <label for="NombreComercial" class="block text-sm font-medium text-gray-700">Nombre Comercial</label>
+                <input id="NombreComercial" class="w-full border rounded-lg p-2" />
+            </div>
+            <div>
+                <label for="NombreOficial" class="block text-sm font-medium text-gray-700">*Nombre Oficial</label>
+                <input id="NombreOficial" required class="w-full border rounded-lg p-2" />
+            </div>
+            <div>
+                <label for="RfcNoIdFiscal" class="block text-sm font-medium text-gray-700">*RFC o No. Fiscal</label>
+                <input id="RfcNoIdFiscal" required class="w-full border rounded-lg p-2" />
+            </div>
+            <div>
+                <label for="IdPersonaJuridicaSAT" class="block text-sm font-medium text-gray-700">*Persona Jurídica</label>
+                <select id="IdPersonaJuridicaSAT" required class="border rounded-md px-3 py-2 w-full">
+                    <option value="">Selecciona Persona Jurídica</option>
+                </select>
+            </div>
+            <div>
+                <label for="IdRegimenSAT" class="block text-sm font-medium text-gray-700">*Régimen Fiscal</label>
+                <select id="IdRegimenSAT" required class="border rounded-md px-3 py-2 w-full">
+                    <option value="">Selecciona Régimen Fiscal</option>
+                </select>
+            </div>
+        </div>
+      </section>
+
+      <hr class="my-6">
+
+      <section>
+        <h2 class="text-xl font-semibold text-blue-700 mb-4">📞 Contacto</h2>
+        <div class="grid gap-6 sm:grid-cols-2">
+            <div>
+                <label for="Telefono1" class="block text-sm font-medium text-gray-700">Teléfono 1</label>
+                <input id="Telefono1" class="w-full border rounded-lg p-2" />
+            </div>
+            <div>
+                <label for="Telefono2" class="block text-sm font-medium text-gray-700">Teléfono 2</label>
+                <input id="Telefono2" class="w-full border rounded-lg p-2" />
+            </div>
+            <div>
+                <label for="Movil" class="block text-sm font-medium text-gray-700">Móvil</label>
+                <input id="Movil" class="w-full border rounded-lg p-2" />
+            </div>
+            <div>
+                <label for="Email" class="block text-sm font-medium text-gray-700">Email para recibir documentos</label>
+                <input id="Email" class="w-full border rounded-lg p-2" />
+            </div>
+            <div>
+                <label for="EmailCc" class="block text-sm font-medium text-gray-700">Email CC para recibir documentos</label>
+                <input id="EmailCc" class="w-full border rounded-lg p-2" />
+            </div>
+        </div>
+      </section>
+
+      <hr class="my-6">
+
+      <section>
+        <h2 class="text-xl font-semibold text-blue-700 mb-4">🏠 Dirección Fiscal</h2>
+        <div class="grid gap-6 sm:grid-cols-2">
+            <div>
+                <label for="NombreVialidad" class="block text-sm font-medium text-gray-700">Calle / Vialidad</label>
+                <input id="NombreVialidad" class="w-full border rounded-lg p-2" />
+            </div>
+            <div>
+                <label for="NumExt" class="block text-sm font-medium text-gray-700">Número Exterior</label>
+                <input id="NumExt" class="w-full border rounded-lg p-2" />
+            </div>
+            <div>
+                <label for="NumInt" class="block text-sm font-medium text-gray-700">Número Interior</label>
+                <input id="NumInt" class="w-full border rounded-lg p-2" />
+            </div>
+            <div>
+                <label for="ColoniaLocalidad" class="block text-sm font-medium text-gray-700">Colonia / Localidad</label>
+                <input id="ColoniaLocalidad" class="w-full border rounded-lg p-2" />
+            </div>
+            <div>
+                <label for="CodigoPostal" class="block text-sm font-medium text-gray-700">*Código Postal</label>
+                <input id="CodigoPostal" required class="w-full border rounded-lg p-2" />
+            </div>
+            <div>
+                <label for="CiudadEntidad" class="block text-sm font-medium text-gray-700">Ciudad / Entidad</label>
+                <input id="CiudadEntidad" class="w-full border rounded-lg p-2" />
+            </div>
+            <div>
+                <label for="EstadoProvincia" class="block text-sm font-medium text-gray-700">Estado / Provincia</label>
+                <input id="EstadoProvincia" class="w-full border rounded-lg p-2" />
+            </div>
+            <div>
+                <label for="Pais" class="block text-sm font-medium text-gray-700">País</label>
+                <input id="Pais" class="w-full border rounded-lg p-2" />
+            </div>
+        </div>
+      </section>
+
+      <div class="text-center mt-10">
+        <button type="submit" class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-blue-700 transition">
+          Guardar Cliente
+        </button>
+      </div>
+    </form>
+    
+    <div class="mt-6">
+      <a href="/clientes" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Volver al Catálogo
+      </a>
+    </div>
+    
+    <div class="text-center text-sm text-gray-500 mt-6">
+      <p>&copy; 2025 GÉNEOSYST Factura Web. Todos los derechos reservados.</p>
+    </div>
+  </div>
+
+  <script>
+    const IdUsuarioGs = localStorage.getItem('usuario_id');
+    const clienteEditarId = localStorage.getItem('cliente_editar_id');
+
+    if (!IdUsuarioGs) {
+      alert("Sesión no válida");
+      window.location.href = "/login";
+    }
+    
+    // Prevención de volver atrás si cerró sesión
+    window.addEventListener("pageshow", function (event) {
+      if (event.persisted || performance.getEntriesByType("navigation")[0].type === "back_forward") {
+        if (!localStorage.getItem("usuario_email")) {
+          window.location.href = "/login";
+        }
+      }
+    });
+
+    document.getElementById("form-cliente").addEventListener("submit", async e => {
+      e.preventDefault();
+
+      const campos = Array.from(document.querySelectorAll("#form-cliente input, #form-cliente select"));
+      const datos = { IdUsuarioGs };
+      campos.forEach(input => {
+        datos[input.id] = input.value.trim();
+      });
+      
+    // Mostrar el mensaje de carga antes de iniciar la solicitud
+      Swal.fire({
+        title: '⏳ Guardando datos...',
+        text: 'Por favor espera un momento.',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        showConfirmButton: false,
+        didOpen: () => {
+          Swal.showLoading();
+        }
+      });
+
+      const respuesta = await fetch("https://fw.geneosyst.com/api/clientes_guardar.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(datos)
+      });
+
+      const resultado = await respuesta.json();
+      //alert(resultado.message);
+      // Cerrar el mensaje de carga
+        Swal.close();
+
+      if (resultado.success) {
+            // Consultar paso actual del usuario
+            const pasoRes = await fetch("/api/obtener_onboarding.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ userId: parseInt(IdUsuarioGs) })
+            });
+            
+            const pasoData = await pasoRes.json();
+            if (pasoData.success) {
+                const paso = parseInt(pasoData.step);
+                if (paso < 3) {
+                  avanzarPaso(3);
+                    Swal.fire({
+                        icon: 'success',
+                        title: '¡Buen trabajo!',
+                        text: 'Tu primer cliente ha sido registrado exitosamente. Ahora es momento de agregar tus productos o servicios.',
+                        showCancelButton: true,
+                        confirmButtonText: 'Ir a Productos y Servicios',
+                        cancelButtonText: 'Ahora no'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = 'productos';
+                        } else {
+                            window.location.href = 'panel';
+                        }
+                    });
+                } else {
+                    //Mensaje
+                    Swal.fire({
+                        icon: 'success',
+                        title: '¡Guardado!',
+                        text: resultado.message
+                    }).then(() => {
+                        window.location.href = "/clientes";
+                    });
+                }
+            }
+        localStorage.removeItem('cliente_editar_id');
+      } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: resultado.message
+            });
+        }
+    });
+
+    async function cargarCatalogos() {
+      try {
+        const res1 = await fetch("https://fw.geneosyst.com/api/catalogo_persona_juridica.php");
+        const data1 = await res1.json();
+        const select1 = document.getElementById("IdPersonaJuridicaSAT");
+        if (data1.success && Array.isArray(data1.data)) {
+          data1.data.forEach(op => {
+            const o = document.createElement("option");
+            o.value = op.Id;
+            o.textContent = op.PersonaJuridica;
+            select1.appendChild(o);
+          });
+        }
+
+        const res2 = await fetch("https://fw.geneosyst.com/api/catalogo_regimen_fiscal.php");
+        const data2 = await res2.json();
+        const select2 = document.getElementById("IdRegimenSAT");
+        if (data2.success && Array.isArray(data2.data)) {
+          data2.data.forEach(op => {
+            const o = document.createElement("option");
+            o.value = op.Id;
+            o.textContent = op.Descripcion;
+            select2.appendChild(o);
+          });
+        }
+      } catch (e) {
+        console.error("Error cargando catálogos:", e);
+      }
+    }
+
+    async function cargarDatosCliente() {
+      try {
+        const res = await fetch("https://fw.geneosyst.com/api/clientes_obtener.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ Id: clienteEditarId, IdUsuarioGs })
+        });
+        const data = await res.json();
+        if (data.success) {
+          Object.entries(data.cliente).forEach(([key, value]) => {
+            const campo = document.getElementById(key);
+            if (campo) campo.value = value ?? "";
+          });
+          document.getElementById("Id").value = clienteEditarId;
+          document.getElementById("titulo-formulario").textContent = "🏢 Editar Cliente";
+        } else {
+          alert(data.message);
+        }
+      } catch (e) {
+        console.error("Error cargando cliente:", e);
+      }
+    }
+    
+    function avanzarPaso(nuevoPaso) {
+      const userId = localStorage.getItem("usuario_id");
+      fetch("https://fw.geneosyst.com/api/avance_onboarding.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId: userId, newStep: nuevoPaso }),
+      })
+        .then((r) => r.json())
+        .then((data) => {
+          if (data.success) {
+            localStorage.setItem("onboardingStep", nuevoPaso);
+            showToast(`¡Paso ${nuevoPaso - 1} completado!`);
+            if (nuevoPaso === 5 && typeof confetti === "function") confetti();
+          }
+        });
+    }
+
+    window.onload = () => {
+      cargarCatalogos().then(() => {
+        if (clienteEditarId) cargarDatosCliente();
+      });
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nuevo Documento - Factura Web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Al abrir un <details>, aumentamos la sombra sobre el contenedor */
+    details[open] {
+      @apply shadow-md;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-tr from-blue-100 via-white to-blue-200 min-h-screen px-4 py-8">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Volver al listado de documentos -->
+    <div class="mb-4">
+      <a href="/documentos.html" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Volver a Documentos
+      </a>
+    </div>
+
+    <h1 class="text-3xl font-bold text-blue-800 mb-6">🧾 Nuevo Documento</h1>
+
+    <!-- Botón para expandir/colapsar todos los segmentos -->
+    <div class="flex justify-end mb-4">
+      <button
+        id="btn-toggle-all"
+        type="button"
+        class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded shadow transition-colors"
+      >
+        Expandir todos
+      </button>
+    </div>
+
+    <form id="form-documento" class="bg-white rounded-xl shadow-md overflow-hidden">
+
+      <!-- 📌 DATOS GENERALES -->
+      <details open class="bg-blue-100 rounded-lg shadow p-0 open:shadow-md border-b">
+        <summary class="cursor-pointer font-semibold text-lg text-blue-700 bg-blue-100 px-6 py-3 flex items-center justify-between">
+          📌 Datos Generales
+          <svg class="w-5 h-5 text-blue-700 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+        <div class="bg-white px-6 py-4 grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div>
+            <label class="block text-sm text-gray-700">Tipo</label>
+            <select id="TipoDocumento" class="border rounded-md px-3 py-2 w-full" required>
+                <option value="">- Selecciona tipo -</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm text-gray-700">Serie</label>
+            <input id="Serie" class="w-full border rounded-lg p-2" required />
+          </div>
+          <div>
+            <label class="block text-sm text-gray-700">Folio</label>
+            <input id="Folio" class="w-full border rounded-lg p-2" required />
+          </div>
+          <div>
+            <label class="block text-sm text-gray-700">Fecha de elaboración</label>
+            <input type="date" id="Fecha" class="w-full border rounded-lg p-2" required />
+          </div>
+        </div>
+      </details>
+
+      <!-- 👤 EMPRESA -->
+      <details class="bg-blue-50 rounded-lg shadow p-0 open:shadow-md border-b mt-4">
+        <summary class="cursor-pointer font-semibold text-lg text-blue-700 bg-blue-50 px-6 py-3 flex items-center justify-between">
+          👤 Empresa
+          <svg class="w-5 h-5 text-blue-700 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+        <div class="bg-white px-6 py-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm text-gray-700">Empresa</label>
+            <select id="ClienteId" class="border rounded-md px-3 py-2 w-full" required></select>
+          </div>
+          <div>
+            <label class="block text-sm text-gray-700">Uso de CFDI</label>
+            <select id="UsoCfdi" class="border rounded-md px-3 py-2 w-full" required></select>
+          </div>
+        </div>
+      </details>
+
+      <!-- 💳 CONDICIONES DE PAGO -->
+      <details class="bg-blue-50 rounded-lg shadow p-0 open:shadow-md border-b mt-4">
+        <summary class="cursor-pointer font-semibold text-lg text-blue-700 bg-blue-50 px-6 py-3 flex items-center justify-between">
+          💳 Condiciones de Pago
+          <svg class="w-5 h-5 text-blue-700 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+        <div class="bg-white px-6 py-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-sm text-gray-700">Método de Pago</label>
+            <select id="MetodoPago" class="border rounded-md px-3 py-2 w-full" required></select>
+          </div>
+          <div>
+            <label class="block text-sm text-gray-700">Forma de Pago</label>
+            <select id="FormaPago" class="border rounded-md px-3 py-2 w-full"></select>
+          </div>
+          <div>
+            <label class="block text-sm text-gray-700">Término de Pago</label>
+            <select id="TerminoPago" class="border rounded-md px-3 py-2 w-full"></select>
+          </div>
+        </div>
+      </details>
+
+      <!-- 📦 PRODUCTOS / PARTIDAS -->
+      <details class="bg-blue-50 rounded-lg shadow p-0 open:shadow-md border-b mt-4">
+        <summary class="cursor-pointer font-semibold text-lg text-blue-700 bg-blue-50 px-6 py-3 flex items-center justify-between">
+          📦 Productos / Partidas
+          <svg class="w-5 h-5 text-blue-700 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+        <div class="bg-white px-6 py-4 text-gray-500 italic">
+          Aquí se integrará el editor de partidas.
+        </div>
+      </details>
+
+      <!-- 💲 TOTALES E IMPUESTOS -->
+      <details class="bg-blue-50 rounded-lg shadow p-0 open:shadow-md border-b mt-4">
+        <summary class="cursor-pointer font-semibold text-lg text-blue-700 bg-blue-50 px-6 py-3 flex items-center justify-between">
+          💲 Totales e Impuestos
+          <svg class="w-5 h-5 text-blue-700 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+        <div class="bg-white px-6 py-4 text-gray-500 italic">
+          Aquí se integrará el editor de impuestos globales y el resumen de totales.
+        </div>
+      </details>
+
+      <!-- 🌐 COMPLEMENTOS -->
+      <details class="bg-blue-50 rounded-lg shadow p-0 open:shadow-md border-b mt-4">
+        <summary class="cursor-pointer font-semibold text-lg text-blue-700 bg-blue-50 px-6 py-3 flex items-center justify-between">
+          🌐 Complementos
+          <svg class="w-5 h-5 text-blue-700 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+        <div class="bg-white px-6 py-4 space-y-3">
+          <p class="text-gray-700">🧾 Editor de Comercio Exterior</p>
+          <p class="text-gray-700">🚚 Editor de Carta Porte</p>
+          <p class="text-gray-700">🔗 Editor de Documentos Relacionados</p>
+        </div>
+      </details>
+
+      <!-- 📝 OBSERVACIONES / NOTAS -->
+      <details class="bg-blue-50 rounded-lg shadow p-0 open:shadow-md border-b mt-4">
+        <summary class="cursor-pointer font-semibold text-lg text-blue-700 bg-blue-50 px-6 py-3 flex items-center justify-between">
+          📝 Observaciones / Notas
+          <svg class="w-5 h-5 text-blue-700 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+        <div class="bg-white px-6 py-4">
+          <textarea id="Notas" rows="3" class="w-full border border-gray-300 rounded px-3 py-2" placeholder="Escribe observaciones del documento..."></textarea>
+        </div>
+      </details>
+
+      <!-- 🗂️ CONTABILIDAD / CUENTAS -->
+      <details class="bg-blue-50 rounded-lg shadow p-0 open:shadow-md border-b mt-4">
+        <summary class="cursor-pointer font-semibold text-lg text-blue-700 bg-blue-50 px-6 py-3 flex items-center justify-between">
+          🗂️ Contabilidad / Cuentas
+          <svg class="w-5 h-5 text-blue-700 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+        <div class="bg-white px-6 py-4 text-gray-500 italic">
+          Aquí se integrará el selector de cuentas contables u órdenes de pago.
+        </div>
+      </details>
+
+      <!-- BOTÓN GUARDAR -->
+      <div class="p-6 text-right">
+        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded shadow">
+          Guardar Documento →
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+
+  <!-- Script para cargar catálogos, calcular folio y alternar todos los <details> -->
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      await cargarCatalogo('/api/catalogo_tipo_documento.php?form=DocVentas', 'TipoDocumento', 'TipoDocumento', 'Tipo');
+      await cargarCatalogo('/api/catalogo_clientes.php', 'ClienteId', 'Nombre');
+      await cargarCatalogo('/api/catalogo_uso_cfdi.php', 'UsoCfdi', 'Descripcion', 'Clave');
+      await cargarCatalogo('/api/catalogo_metodo_pago.php', 'MetodoPago', 'Descripcion', 'Clave');
+      await cargarCatalogo('/api/catalogo_forma_pago.php', 'FormaPago', 'Descripcion', 'Clave');
+      await cargarCatalogo('/api/catalogo_termino_pago.php', 'TerminoPago', 'Descripcion');
+
+      document.getElementById('TipoDocumento').addEventListener('change', calcularFolio);
+      document.getElementById('Serie').addEventListener('blur', calcularFolio);
+
+      // Botón Expandir/Colapsar todos
+      const btnToggleAll = document.getElementById('btn-toggle-all');
+      btnToggleAll.addEventListener('click', () => {
+        const detalles = document.querySelectorAll('#form-documento details');
+        const algunoCerrado = Array.from(detalles).some(det => !det.hasAttribute('open'));
+
+        if (algunoCerrado) {
+          detalles.forEach(det => det.setAttribute('open', ''));
+          btnToggleAll.textContent = 'Colapsar todos';
+        } else {
+          detalles.forEach(det => det.removeAttribute('open'));
+          btnToggleAll.textContent = 'Expandir todos';
+        }
+      });
+    });
+
+    async function cargarCatalogo(api, selectId, textoCampo, valorCampo = 'Id') {
+      const select = document.getElementById(selectId);
+      try {
+        const res = await fetch(api);
+        const data = await res.json();
+        if (data.success) {
+          data.data.forEach(item => {
+            const option = document.createElement('option');
+            option.value = item[valorCampo];
+            option.textContent = item[valorCampo] && item[textoCampo]
+              ? `${item[valorCampo]} - ${item[textoCampo]}`
+              : item[textoCampo] || item.Nombre || '';
+            select.appendChild(option);
+          });
+        }
+      } catch (err) {
+        console.error(`Error al cargar ${selectId}:`, err);
+      }
+    }
+
+    async function calcularFolio() {
+      const tipo = document.getElementById('TipoDocumento').value;
+      const serie = document.getElementById('Serie').value;
+      if (!tipo || !serie) return;
+
+      try {
+        const res = await fetch('/api/siguiente_folio.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ TipoDocumento: tipo, Serie: serie })
+        });
+        const data = await res.json();
+        document.getElementById('Folio').value = data.success ? data.folio : '';
+      } catch (err) {
+        console.error('Error al calcular folio:', err);
+      }
+    }
+  </script>
+
+</body>
+</html>

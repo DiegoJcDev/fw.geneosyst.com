@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Documentos - Factura Web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-tr from-blue-100 via-white to-blue-200 min-h-screen px-6 py-10">
+
+  <div class="max-w-7xl mx-auto">
+    <!-- Volver al panel -->
+    <div class="mb-4">
+      <a href="/panel" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Volver al Panel
+      </a>
+    </div>
+
+    <!-- Título -->
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-3xl font-bold text-blue-800">📄 Documentos</h1>
+      <!-- Botón flotante -->
+      <a href="/documentos_crear" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-full shadow-lg transition-all">
+        + Nuevo Documento
+      </a>
+    </div>
+
+    <!-- Filtros -->
+    <div class="bg-white rounded-xl shadow p-4 mb-6 flex flex-wrap gap-4 items-center">
+      <div>
+        <label class="text-sm text-gray-600 block mb-1">Tipo</label>
+        <select id="filtro-tipo" class="border-gray-300 rounded px-3 py-2 w-40">
+          <option value="">Todos</option>
+          <option value="FACTURA">Factura</option>
+          <option value="NCREDITO">Nota de Crédito</option>
+          <option value="COBRO">Cobro</option>
+        </select>
+      </div>
+      <div>
+        <label class="text-sm text-gray-600 block mb-1">Estado</label>
+        <select id="filtro-estado" class="border-gray-300 rounded px-3 py-2 w-40">
+          <option value="">Todos</option>
+          <option value="ACTIVO">Activo</option>
+          <option value="TIMBRADO">Timbrado</option>
+          <option value="CANCELADO">Cancelado</option>
+        </select>
+      </div>
+      <div>
+        <label class="text-sm text-gray-600 block mb-1">Cliente</label>
+        <input type="text" id="filtro-cliente" placeholder="Buscar cliente..." class="border-gray-300 rounded px-3 py-2 w-60">
+      </div>
+      <div>
+        <label class="text-sm text-gray-600 block mb-1">Fecha desde</label>
+        <input type="date" id="filtro-fecha-desde" class="border-gray-300 rounded px-3 py-2">
+      </div>
+      <div>
+        <label class="text-sm text-gray-600 block mb-1">Fecha hasta</label>
+        <input type="date" id="filtro-fecha-hasta" class="border-gray-300 rounded px-3 py-2">
+      </div>
+      <button onclick="aplicarFiltros()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded mt-6 sm:mt-0">
+        Aplicar Filtros
+      </button>
+    </div>
+
+    <!-- Tabla de documentos -->
+    <div class="bg-white shadow rounded-xl overflow-x-auto">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-blue-100 text-blue-900">
+          <tr>
+            <th class="px-6 py-3 text-right text-sm font-semibold">Acciones</th>
+            <th class="px-6 py-3 text-left text-sm font-semibold">Tipo</th>
+            <th class="px-6 py-3 text-left text-sm font-semibold">Folio</th>
+            <th class="px-6 py-3 text-left text-sm font-semibold">Cliente</th>
+            <th class="px-6 py-3 text-left text-sm font-semibold">Fecha</th>
+            <th class="px-6 py-3 text-left text-sm font-semibold">Total</th>
+            <th class="px-6 py-3 text-left text-sm font-semibold">Estado</th>
+          </tr>
+        </thead>
+        <tbody id="tabla-documentos" class="divide-y divide-gray-200">
+          <!-- Aquí se renderizan las filas dinámicamente -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    // Ejemplo estático de carga (sustituir por fetch a API)
+    const documentos = [
+      { tipo: 'FACTURA', folio: 'F-0001', cliente: 'Distribuidora MX', fecha: '2025-05-28', total: 1500.00, estado: 'TIMBRADO' },
+      { tipo: 'NCREDITO', folio: 'NC-002', cliente: 'Tienda ABC', fecha: '2025-05-27', total: -200.00, estado: 'ACTIVO' },
+      { tipo: 'COBRO', folio: 'C-003', cliente: 'Cliente Test', fecha: '2025-05-25', total: 800.00, estado: 'ACTIVO' },
+    ];
+
+    function renderTabla() {
+      const tbody = document.getElementById('tabla-documentos');
+      tbody.innerHTML = '';
+
+      documentos.forEach(doc => {
+        tbody.innerHTML += `
+          <tr>
+            <td class="px-6 py-4 text-right">
+              <a href="/documentos/ver.html?id=1" class="text-blue-600 hover:underline">Ver</a>
+            </td>
+            <td class="px-6 py-4">${doc.tipo}</td>
+            <td class="px-6 py-4">${doc.folio}</td>
+            <td class="px-6 py-4">${doc.cliente}</td>
+            <td class="px-6 py-4">${doc.fecha}</td>
+            <td class="px-6 py-4">$${doc.total.toFixed(2)}</td>
+            <td class="px-6 py-4">${doc.estado}</td>
+          </tr>`;
+      });
+    }
+
+    function aplicarFiltros() {
+      alert('Aquí se aplicarán los filtros y se recargará la tabla.');
+      // Lógica de filtrado backend o frontend
+    }
+
+    renderTabla();
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+[03-May-2025 19:16:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php:48
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php on line 48
+[03-May-2025 19:40:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php:48
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php on line 48
+[03-May-2025 19:43:54 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php:48
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php on line 48
+[03-May-2025 20:38:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php:48
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php on line 48
+[03-May-2025 20:43:51 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php:48
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php on line 48
+[03-May-2025 20:43:52 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php:48
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php on line 48
+[03-May-2025 20:43:53 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php:48
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php on line 48
+[04-May-2025 04:34:48 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php:49
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php on line 49
+[04-May-2025 04:54:30 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::get_result() in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php:49
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php on line 49
+[04-May-2025 05:15:39 UTC] PHP Warning:  mysqli_stmt::bind_result() expects at least 1 parameter, 0 given in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php on line 50
+[04-May-2025 05:15:39 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php:51
+Stack trace:
+#0 {main}
+  thrown in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php on line 51
+[04-May-2025 05:18:26 UTC] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 4294967296 bytes) in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php on line 53
+[04-May-2025 05:18:28 UTC] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 4294967296 bytes) in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php on line 53
+[04-May-2025 05:18:29 UTC] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 4294967296 bytes) in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php on line 53
+[04-May-2025 05:19:31 UTC] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 4294967296 bytes) in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php on line 53
+[04-May-2025 05:23:13 UTC] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 4294967296 bytes) in /home/adminsys/fw.geneosyst.com/api/obtener_mi_empresa.php on line 45

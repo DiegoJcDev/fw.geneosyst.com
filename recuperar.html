@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Recuperar contraseña - Factura Web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/css/output.css" rel="stylesheet">
+  <style>
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-tr from-blue-100 via-white to-blue-200 min-h-screen flex items-center justify-center px-4">
+
+  <div class="flex flex-col items-center space-y-6 animate-[fadeInUp_0.8s_ease-out]">
+
+    <!-- Logo y encabezado -->
+    <div class="text-center">
+      <img src="/logo.png" alt="Logo del sistema" style="width:150px; height:37.5px;" class="mx-auto drop-shadow-md">
+      <h1 class="text-2xl font-bold text-gray-800 mt-3">Factura Web</h1>
+      <p class="text-sm text-gray-500">Recuperá el acceso a tu cuenta</p>
+    </div>
+
+    <!-- Formulario -->
+    <form id="recuperarForm" class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-sm border border-gray-100">
+      <div class="mb-4">
+        <label for="email" class="block text-sm font-medium text-gray-600 mb-1">Correo electrónico</label>
+        <input type="email" id="email" required
+               class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      </div>
+
+      <p id="mensaje" class="text-sm text-center text-gray-600 mb-4 hidden"></p>
+
+      <button type="submit"
+              class="w-full py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+        Enviar enlace de recuperación
+      </button>
+
+      <div class="mt-4 text-center text-sm">
+        <a href="/login" class="text-blue-600 hover:underline">Volver al inicio de sesión</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("recuperarForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+  const email = document.getElementById("email").value.trim();
+  const mensaje = document.getElementById("mensaje");
+  mensaje.classList.add("hidden");
+  mensaje.textContent = "";
+
+  try {
+    const response = await fetch("https://fw.geneosyst.com/api/solicitar_recuperacion.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email })
+    });
+
+        const result = await response.json();
+        mensaje.textContent = result.message;
+        mensaje.classList.remove("hidden");
+      } catch {
+        mensaje.textContent = "Error al enviar la solicitud.";
+        mensaje.classList.remove("hidden");
+        mensaje.classList.replace("text-green-600", "text-red-600");
+      }
+    });
+
+  </script>
+</body>
+</html>

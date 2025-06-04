@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mi Empresa - Factura Web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/css/output.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    input, select, textarea { transition: all 0.3s ease; }
+    input:focus, select:focus, textarea:focus { box-shadow: 0 0 0 2px #2563eb33; }
+    #logoPreview {
+      max-width: 200px;
+      max-height: 200px;
+      object-fit: contain;
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-tr from-blue-100 via-white to-blue-200 min-h-screen px-4 py-10">
+  <div class="max-w-4xl mx-auto animate-[fadeInUp_0.8s_ease-out]">
+    <div class="mb-6">
+      <a href="/panel" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Volver al Panel
+      </a>
+    </div>
+
+    <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center">🏢 Datos de Mi Empresa</h1>
+
+    <form id="formEmpresa" class="bg-white p-8 rounded-2xl shadow-lg space-y-8" enctype="multipart/form-data">
+
+      <section>
+        <h2 class="text-xl font-semibold text-blue-700 mb-4">📄 Datos Fiscales</h2>
+        <div class="grid gap-6 sm:grid-cols-2">
+          <div>
+            <label for="razonSocial" class="block text-sm font-medium text-gray-700">*Razón Social</label>
+            <input id="razonSocial" name="razonSocial" type="text" required class="w-full border rounded-lg p-2" />
+          </div>
+          <div>
+            <label for="tipoPersona" class="block text-sm font-medium text-gray-700">*Tipo de Persona</label>
+            <select id="tipoPersona" name="tipoPersona" required class="border rounded-md px-3 py-2 w-full">
+              <option value="">Selecciona una opción</option>
+            </select>
+          </div>
+          <div>
+            <label for="regimenFiscal" class="block text-sm font-medium text-gray-700">*Régimen Fiscal</label>
+            <select id="regimenFiscal" name="regimenFiscal" required class="border rounded-md px-3 py-2 w-full">
+              <option value="">Selecciona una opción</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <hr class="my-6">
+
+      <section>
+        <h2 class="text-xl font-semibold text-blue-700 mb-4">🏠 Domicilio Fiscal</h2>
+        <div class="grid gap-6 sm:grid-cols-2">
+            <div>
+                <label for="calle" class="block text-sm font-medium text-gray-700">Calle</label>
+                <input id="calle" name="calle" class="w-full border rounded-lg p-2" />
+            </div>
+            <div>
+                <label for="numExt" class="block text-sm font-medium text-gray-700">Número Ext.</label>
+                <input id="numExt" name="numExt" class="w-full border rounded-lg p-2" />
+            </div>
+            <div>
+                <label for="numInt" class="block text-sm font-medium text-gray-700">Número Int.</label>
+                <input id="numInt" name="numInt" class="w-full border rounded-lg p-2" />
+            </div>
+            <div>
+                <label for="colonia" class="block text-sm font-medium text-gray-700">Colonia</label>
+                <input id="colonia" name="colonia" class="w-full border rounded-lg p-2" />
+            </div>
+            <div>
+                <label for="codigoPostal" class="block text-sm font-medium text-gray-700">*Código Postal</label>
+                <input id="codigoPostal" name="codigoPostal" maxlength="5" required class="w-full border rounded-lg p-2" />
+            </div>
+            <div>
+                <label for="municipio" class="block text-sm font-medium text-gray-700">Municipio/Alcaldía</label>
+                <input id="municipio" name="municipio" class="w-full border rounded-lg p-2" />
+            </div>
+            <div>
+                <label for="estado" class="block text-sm font-medium text-gray-700">Estado</label>
+                <input id="estado" name="estado" class="w-full border rounded-lg p-2 sm:col-span-2" />
+            </div>
+        </div>
+      </section>
+
+      <hr class="my-6">
+
+      <section>
+        <h2 class="text-xl font-semibold text-blue-700 mb-4">📟 Datos CFDI</h2>
+        <div class="grid gap-6 sm:grid-cols-2">
+          <div>
+            <label for="certificadoCer" class="block text-sm font-medium text-gray-700">Certificado (.CER)</label>
+            <input id="certificadoCer" name="certificadoCer" type="file" accept=".cer" class="w-full border rounded-lg p-2" />
+            <p id="cerCargadoInfo" class="text-green-600 text-sm mt-1 hidden">✔ Certificado ya cargado.</p>
+          </div>
+          <div>
+            <label for="certificadoKey" class="block text-sm font-medium text-gray-700">Certificado (.KEY)</label>
+            <input id="certificadoKey" name="certificadoKey" type="file" accept=".key" class="w-full border rounded-lg p-2" />
+            <p id="keyCargadoInfo" class="text-green-600 text-sm mt-1 hidden">✔ Llave privada ya cargada.</p>
+          </div>
+          <div>
+            <label for="contrasenaCsd" class="block text-sm font-medium text-gray-700">Contraseña CSD</label>
+            <input id="contrasenaCsd" name="contrasenaCsd" type="password" class="w-full border rounded-lg p-2" />
+          </div>
+          <div>
+            <label for="logoEmpresa" class="block text-sm font-medium text-gray-700">Logo de Empresa</label>
+            <input id="logoEmpresa" name="logoEmpresa" type="file" accept="image/*" class="w-full border rounded-lg p-2" />
+            <img id="logoPreview" alt="Vista previa del logo" class="mt-2 rounded-lg border" />
+          </div>
+        </div>
+      </section>
+
+      <div class="text-center mt-10">
+        <button type="submit" class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-blue-700 transition">
+          Guardar Información
+        </button>
+      </div>
+    </form>
+    
+    <div class="mt-6">
+      <a href="/panel" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Volver al Panel
+      </a>
+    </div>
+    
+    <div class="text-center text-sm text-gray-500 mt-6">
+      <p>&copy; 2025 GÉNEOSYST Factura Web. Todos los derechos reservados.</p>
+    </div>
+  </div>
+
+  <script>
+    async function cargarDatosEmpresa() {
+      const rfc = localStorage.getItem("usuario_rfc");
+      const idUsuario = localStorage.getItem("usuario_id");
+      if (!rfc || !idUsuario) return alert("⚠️ No se ha iniciado sesión correctamente.");
+
+      try {
+        const personasRes = await fetch('https://fw.geneosyst.com/api/catalogo_persona_juridica.php');
+        const regimenesRes = await fetch('https://fw.geneosyst.com/api/catalogo_regimen_fiscal.php');
+        const empresaRes = await fetch(`https://fw.geneosyst.com/api/obtener_mi_empresa.php?rfc=${rfc}&idUsuario=${idUsuario}`);
+
+        const personas = await personasRes.json();
+        const regimenes = await regimenesRes.json();
+        const empresaData = await empresaRes.json();
+
+        const tipoPersonaSelect = document.getElementById('tipoPersona');
+        const regimenFiscalSelect = document.getElementById('regimenFiscal');
+        tipoPersonaSelect.innerHTML = '<option value="">Selecciona una opción</option>';
+        regimenFiscalSelect.innerHTML = '<option value="">Selecciona una opción</option>';
+
+        if (personas.success) {
+          personas.data.forEach(p => {
+            const option = document.createElement('option');
+            option.value = p.Id;
+            option.textContent = p.PersonaJuridica;
+            tipoPersonaSelect.appendChild(option);
+          });
+        }
+
+        if (regimenes.success) {
+          regimenes.data.forEach(r => {
+            const option = document.createElement('option');
+            option.value = r.Id;
+            option.textContent = r.Descripcion;
+            regimenFiscalSelect.appendChild(option);
+          });
+        }
+
+        if (empresaData.success && empresaData.data) {
+          const empresa = empresaData.data;
+          document.getElementById('razonSocial').value = empresa.NombreOficial || '';
+          tipoPersonaSelect.value = String(empresa.IdPersonaJuridicaSAT || '');
+          regimenFiscalSelect.value = String(empresa.IdRegimenSAT || '');
+          document.getElementById('calle').value = empresa.NombreVialidad || '';
+          document.getElementById('numExt').value = empresa.NumExt || '';
+          document.getElementById('numInt').value = empresa.NumInt || '';
+          document.getElementById('colonia').value = empresa.ColoniaLocalidad || '';
+          document.getElementById('codigoPostal').value = empresa.CodigoPostal || '';
+          document.getElementById('municipio').value = empresa.CiudadEntidad || '';
+          document.getElementById('estado').value = empresa.EstadoProvincia || '';
+          document.getElementById('contrasenaCsd').value = empresa.PswTimb || '';
+
+          if (empresa.CerCargado) document.getElementById('cerCargadoInfo').style.display = 'block';
+          if (empresa.KeyCargado) document.getElementById('keyCargadoInfo').style.display = 'block';
+
+          if (empresa.LogoCargado) {
+            const logo = document.getElementById('logoPreview');
+            logo.src = `https://fw.geneosyst.com/api/obtener_logo.php?rfc=${rfc}&idUsuario=${idUsuario}`;
+            logo.style.display = 'block';
+          }
+        }
+      } catch (error) {
+        console.error("Error al cargar datos:", error);
+      }
+    }
+
+    document.getElementById('logoEmpresa').addEventListener('change', function (e) {
+      const file = e.target.files[0];
+      const preview = document.getElementById('logoPreview');
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = e => {
+          preview.src = e.target.result;
+          preview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      } else {
+        preview.style.display = 'none';
+        preview.src = '';
+      }
+    });
+
+
+    document.getElementById('formEmpresa').addEventListener('submit', async function (e) {
+      e.preventDefault();
+    
+      const rfc = localStorage.getItem("usuario_rfc");
+      const idUsuario = localStorage.getItem("usuario_id");
+      if (!rfc || !idUsuario) {
+        alert("⚠️ No se ha iniciado sesión correctamente.");
+        return;
+      }
+    
+      const formData = new FormData(document.getElementById("formEmpresa"));
+      formData.append("rfc", rfc);
+      formData.append("idUsuario", idUsuario);
+    
+      // Mostrar el mensaje de carga antes de iniciar la solicitud
+      Swal.fire({
+        title: '⏳ Guardando datos...',
+        text: 'Por favor espera un momento.',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        showConfirmButton: false,
+        didOpen: () => {
+          Swal.showLoading();
+        }
+      });
+    
+      try {
+        const res = await fetch("https://fw.geneosyst.com/api/guardar_mi_empresa.php", {
+          method: "POST",
+          body: formData
+        });
+    
+        const data = await res.json();
+    
+        // Cerrar el mensaje de carga
+        Swal.close();
+    
+        if (data.success) {
+          // Consultar paso actual del usuario
+          const pasoRes = await fetch("/api/obtener_onboarding.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ userId: parseInt(idUsuario) })
+          });
+    
+          const pasoData = await pasoRes.json();
+          if (pasoData.success) {
+            const paso = parseInt(pasoData.step);
+            if (paso < 2) {
+              avanzarPaso(2);
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Perfecto!',
+                    text: 'Has completado el registro de tu empresa. Ahora puedes avanzar al siguiente paso: captura los datos de tus clientes.',
+                    showCancelButton: true,
+                    confirmButtonText: 'Ir a Clientes',
+                    cancelButtonText: 'Ahora no'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = 'clientes';
+                    } else {
+                        window.location.href = 'panel';
+                    }
+                });
+            } else {
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Guardado!',
+                    text: data.message
+                }).then(() => {
+                    window.location.href = "/panel";
+                });
+            }
+          }
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: data.message
+          });
+        }
+      } catch (error) {
+        Swal.close();
+        console.error("Error al enviar formulario:", error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Error de conexión',
+          text: 'No se pudo conectar con el servidor.'
+        });
+      }
+    });
+
+    
+    
+    function avanzarPaso(nuevoPaso) {
+      const userId = localStorage.getItem("usuario_id");
+      fetch("https://fw.geneosyst.com/api/avance_onboarding.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId: userId, newStep: nuevoPaso }),
+      })
+        .then((r) => r.json())
+        .then((data) => {
+          if (data.success) {
+            localStorage.setItem("onboardingStep", nuevoPaso);
+            showToast(`¡Paso ${nuevoPaso - 1} completado!`);
+            if (nuevoPaso === 5 && typeof confetti === "function") confetti();
+          }
+        });
+    }
+
+
+    window.addEventListener("DOMContentLoaded", cargarDatosEmpresa);
+  </script>
+</body>
+</html>
